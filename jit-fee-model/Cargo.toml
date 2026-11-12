@@ -1,0 +1,9 @@
+[package]
+name = "jit-fee-model"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Simulation-only Uniswap V3 single-range JIT fee-capture model, validated against observed mainnet JIT cases. Never signs or submits transactions."
+[dependencies]
+[lib]
+path = "src/lib.rs"

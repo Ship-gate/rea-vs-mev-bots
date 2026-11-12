@@ -4,7 +4,7 @@
 
 We spent about two weeks pointing [REA](https://github.com/morluto/rea) ("Reverse Engineer Anything", MIT, v6.7.0) at live MEV contracts on Ethereum, then tried to turn what we learned into a profitable strategy on paper. The first half worked better than expected. The second half failed everywhere we looked.
 
-This repository is the write-up, the supporting documents, the on-chain data behind the tables and a kit to reproduce the static analysis.
+This repository is the write-up, the supporting documents, the on-chain data behind the tables, a kit to reproduce the static analysis and one small model that came out of the work.
 
 ## The short version
 
@@ -76,7 +76,7 @@ Each market is dominated by one incumbent holding 55% to 85% of events. The rest
 
 On Base, 98.9% of cbETH liquidation value went to transactions landing in the next 200-millisecond block slice after the oracle update. Our pipeline took 334 ms. We cut it to 178 ms with push subscriptions and to 89 ms with a warm local fork.
 
-It changed nothing. Expected value without the top three events stayed at $3.27 per day at 10% capture, and went negative at double the priority fee. Push delivery beat polling by a median 319 ms, but push is available to every subscriber, so it is not an edge.
+It changed nothing. Expected value without the top three events stayed at $3.27 per day at 10% capture, and went negative at double the priority fee. Push delivery beat polling by a median 319 ms, but push is available to every subscriber, so it is not an edge. The full measurement, stage by stage, is in [docs/earlier-information.md](docs/earlier-information.md).
 
 ### Auctions
 
@@ -108,7 +108,7 @@ Reverse engineering closes the knowledge gap. It does not close any of these.
 
 - **Understanding and review.** Recovering the structure of an unverified contract, including unsafe patterns you should not copy.
 - **Checking public claims.** Holdings are not profit. "Front-running" was not what the sample showed.
-- **Specific techniques, measured.** Callback authentication with a calldata-supplied salt saved 621 gas per callback in our benchmark. A fee model that predicts within 1% is a usable filter.
+- **Specific techniques, measured.** Callback authentication with a calldata-supplied salt saved 621 gas per callback in our benchmark. A fee model that predicts within 1% is a usable filter; it is published in [jit-fee-model/](jit-fee-model).
 - **Knowing when to stop.** The most valuable output of this study is a list of things not to build.
 
 ## Method
@@ -141,7 +141,7 @@ The container runs with networking disabled, a read-only filesystem and all capa
 
 ## What is not here
 
-No trading engine, executor contract, bundle submission code or private infrastructure detail is published. This repository is for understanding, not for running a bot.
+No trading engine, executor contract, bundle submission code or private infrastructure detail is published. The one piece of code beyond the analysis kit is the JIT fee model, which is an evaluator and cannot transact. This repository is for understanding, not for running a bot.
 
 ## License
 
