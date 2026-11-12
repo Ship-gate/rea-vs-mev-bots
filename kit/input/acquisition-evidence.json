@@ -1,0 +1,21 @@
+{
+  "retrieved_at_utc": "2026-10-19T08:40:54.062121+00:00",
+  "chain": "Ethereum mainnet (explorer context)",
+  "supplied_address": "0xae2Fc483527B8EF99EB5D9B44875F005ba1FaE13",
+  "supplied_address_is_contract": false,
+  "contract_address": "0x1f2F10D1C40777AE1Da742455c65828FF36Df387",
+  "contract_label": "jaredfromsubway: MEV Bot 2 (explorer attribution)",
+  "sample_transaction": "0x05a2fab26ef54fc3fe55a24ebdafca11f7ec08eed00a14033eb53ea5c842e3ea",
+  "sample_transaction_block": 25054003,
+  "bytecode_source": "https://eth.blockscout.com/api/v2/smart-contracts/0x1f2f10d1c40777ae1da742455c65828ff36df387",
+  "bytecode_bytes": 13835,
+  "decoded_bytecode_sha256": "204a4fde84952e40b97a2841629b35e0abf6d7a3070a6fa7b87d4df6ae044708",
+  "carrier_path": "/private/tmp/rea-web3-jared-bot-runtime.hex",
+  "limitations": [
+    "Explorer bytecode response is not pinned to a block and was not independently verified against RPC.",
+    "Sample transaction block does not establish bytecode block identity.",
+    "No verified source or ABI returned by explorer.",
+    "REA EVM analyzer has not run; current host is macOS ARM and adapter requires Linux x64.",
+    "Explorer labels do not establish ownership or operator identity."
+  ]
+}
