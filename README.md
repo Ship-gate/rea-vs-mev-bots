@@ -56,7 +56,7 @@ Everything below is historical replay or passive observation. Replay success was
 
 We rebuilt Aave V3 liquidation math and checked it against 160 real mainnet liquidations over about 30 days. The math held. The economics did not.
 
-In the exact backtest, 92 events produced $4,023.77 of modeled headroom, of which **$4,016.11 was one event**. Without the top three events the total was $1.33.
+In the exact backtest, 92 events produced $4,023.77 of modeled headroom, of which **$4,016.11 was one event**. Without the top three events the total was $1.33. How the model got from roughly right to exact, and what that changed, is in [docs/aave-liquidation-exactness.md](docs/aave-liquidation-exactness.md).
 
 The same pattern appeared in every market screened. Ranking rule: net after costs, three largest events removed, then stressed at 10% capture and a 50% payment to the builder.
 
